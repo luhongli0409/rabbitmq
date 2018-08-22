@@ -17,10 +17,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MQConsumerConfig {
+
 	@Value("${spring.rabbitmq.queuename}")
 	private String queueName ;
+
 	@Value("${spring.rabbitmq.exchange}")
 	private String queueExchange;
+
 	@Value("${spring.rabbitmq.routingkey}")
 	private String routingkey;
 

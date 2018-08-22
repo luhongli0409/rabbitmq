@@ -28,8 +28,10 @@ public class MQAwareListener implements ChannelAwareMessageListener, Application
 
     @Resource
     private MessageConverter messageConverter;
+
     @Resource
     private RabbitTemplate rabbitTemplate;
+
 	@Value("${spring.rabbitmq.appid}")
 	private String appId;
 
