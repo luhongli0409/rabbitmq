@@ -9,8 +9,8 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>lemon-rabbitmq-consumer</artifactId>
-    <name>lemon-rabbitmq-consumer</name>
+    <artifactId>lemon-rabbitmq-provider</artifactId>
+    <name>lemon-rabbitmq-provider</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

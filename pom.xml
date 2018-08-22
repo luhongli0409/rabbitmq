@@ -12,7 +12,7 @@
 	<packaging>pom</packaging>
 	<name>lemon-boot-parent</name>
 	<modules>
-		<module>lemon-rabbitmq</module>
+		<module>lemon-rabbitmq-provider</module>
 		<module>lemon-rabbitmq-protocol</module>
 		<module>lemon-rabbitmq-consumer</module>
   	</modules>
