@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.lemon</groupId>
-        <artifactId>lemon-boot-parent</artifactId>
+        <artifactId>boot-parent</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>lemon-rabbitmq-consumer</artifactId>
-    <name>lemon-rabbitmq-consumer</name>
+    <artifactId>rabbitmq-provider</artifactId>
+    <name>rabbitmq-provider</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.lemon</groupId>
-            <artifactId>lemon-rabbitmq-protocol</artifactId>
+            <artifactId>rabbitmq-protocol</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
