@@ -1,11 +1,11 @@
-# lemon-rabbitmq
-乐檬框架之rabbitMQ的解耦实现方式（基于springboot框架）
+# rabbitmq
+rabbitMQ的解耦实现方式（基于springboot框架）
 
-lemon-rabbitmq   消息生产端
+rabbitmq-provider   消息生产端
 
-lemon-rabbitmq-protocol   消息协议层
+rabbitmq-protocol   消息协议层domain对象
 
-lemon-rabbitmq-consumer   消息消费端
+rabbitmq-consumer   消息消费端
 
 
 ------------------------------------
