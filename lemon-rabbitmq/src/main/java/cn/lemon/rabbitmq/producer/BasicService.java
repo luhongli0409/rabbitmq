@@ -16,12 +16,15 @@ import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Value;
 
 public abstract class BasicService implements ConfirmCallback {
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Resource
 	public RabbitTemplate rabbitTemplate;
+
 	@Value("${spring.rabbitmq.routingkey}")
 	private String routingkey;
+
 	@Value("${spring.rabbitmq.appid}")
 	private String appId;
 
