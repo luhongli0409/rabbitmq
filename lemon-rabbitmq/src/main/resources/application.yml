@@ -4,7 +4,7 @@ spring:
     queuename: Q2
     exchange: exchange2
     routingkey: routingkey2
-    addresses: 192.168.99.100:32780   # 5672
+    addresses: 45.63.59.120:5672
     username: guest
     password: guest
     publisherConfirms: true
