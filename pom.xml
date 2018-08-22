@@ -12,11 +12,10 @@
 	<packaging>pom</packaging>
 	<name>lemon-boot-parent</name>
 	<modules>
-		<module>lemon-framework</module>
-    <module>lemon-rabbitmq</module>
-    <module>lemon-rabbitmq-protocol</module>
-    <module>lemon-rabbitmq-consumer</module>
-  </modules>
+		<module>lemon-rabbitmq</module>
+		<module>lemon-rabbitmq-protocol</module>
+		<module>lemon-rabbitmq-consumer</module>
+  	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.spring>3.2.9.RELEASE</version.spring>
