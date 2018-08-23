@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
     appid: 9A064E7A180DD4790F827F546F699BB3
-    queuename: Q2
-    exchange: exchange2
-    routingkey: routingkey2
+    queuename: redpacketQueue
+    exchange: redExchange
+    routingkey: redRouting
     addresses: 45.63.59.120:5672
     username: guest
     password: guest

@@ -11,6 +11,7 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,13 +43,13 @@ public class MQConsumerConfig {
     @Bean
     public SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, Queue queue, MessageListenerAdapter listenerAdapter) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory);
-        //container.setQueueNames(queueName);
         container.setQueues(queue);
         container.setExposeListenerChannel(true);
         container.setMaxConcurrentConsumers(1);
         container.setConcurrentConsumers(1);
         container.setPrefetchCount(1000);
-        container.setAcknowledgeMode(AcknowledgeMode.MANUAL); //设置确认模式手工确认
+        //设置确认模式手工确认
+        container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
         container.setMessageListener(listenerAdapter);
         return container;
     }
@@ -62,22 +63,15 @@ public class MQConsumerConfig {
     public Queue queue() {
         return new Queue(queueName, true);
     }
-    
-    /**
-     * 创建exchange, 可以创建TopicExchange(*、#模糊匹配routing key，routing key必须包含".")，DirectExchange，FanoutExchange(无routing key概念)
-     * @return
-     */
+
     @Bean
     public TopicExchange exchange(){
         return new TopicExchange(queueExchange);
     }
-    /*@Bean
-    public DirectExchange exchange(){
-        return new DirectExchange(queueExchange);
-    }*/
     
     @Bean
     public Binding binding(Queue queue, TopicExchange exchange){
         return BindingBuilder.bind(queue).to(exchange).with(routingkey);
     }
+
 }
