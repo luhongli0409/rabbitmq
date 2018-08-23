@@ -1,6 +1,9 @@
 package cn.lemon.rabbitmq.config;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -28,7 +31,8 @@ public class MQProducerConfig {
     @Bean
     @ConfigurationProperties(prefix="spring.rabbitmq")
     public ConnectionFactory connectionFactory(){
-    	return new CachingConnectionFactory (); //publisherConfirms 消息确认回调
+        //publisherConfirms 消息确认回调
+    	return new CachingConnectionFactory ();
     }
     
     @Bean
@@ -46,5 +50,14 @@ public class MQProducerConfig {
     public Queue queue() {
         return new Queue(queueName, true);
     }
-    
+
+    @Bean
+    public TopicExchange exchange(){
+        return new TopicExchange(queueExchange);
+    }
+
+    @Bean
+    public Binding binding(Queue queue, TopicExchange exchange){
+        return BindingBuilder.bind(queue).to(exchange).with(routingkey);
+    }
 }
